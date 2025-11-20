@@ -17,7 +17,7 @@ export default function Home() {
               className="d-inline-flex link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="./src/HikariRamenLogo.png"
+              src="public/images/HikariRamenLogo.png"
               alt="Logo"
             />
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
               className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="/WebDevHW3/src/HikariRamenLogo.png"
+              src="src/HikariRamenLogo.png"
               alt=""
             />
             <p className="text-white px-4">©2025</p>
