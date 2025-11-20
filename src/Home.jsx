@@ -3,6 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./stylesheet.css";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
+import logo from "/public/images/HikariRamenLogo.png";
+
+<img src={logo} />
+
 
 export default function Home() {
     const { cartCount } = useCart();
@@ -17,7 +21,7 @@ export default function Home() {
               className="d-inline-flex link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="public/images/HikariRamenLogo.png"
+              src={logo} 
               alt="Logo"
             />
           </div>
@@ -37,7 +41,7 @@ export default function Home() {
                                   </li>
                                   <li>
                                     <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/cart">
-                                      <img height="25px" src="./src/Cart.png" alt="Cart" />
+                                      <img height="25px" src="public/images/Cart.png" alt="Cart" />
                                       <span
                                         id="cart-count"
                                         className="badge bg-danger"
@@ -56,7 +60,7 @@ export default function Home() {
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5 w-100">
           <div className="col-12 col-sm-8 col-lg-6">
             <img
-              src="./src/HikariRamenLogo.png"
+              src="public/images/HikariRamenLogo.png"
               className="d-block mx-lg-auto img-fluid w-100"
               alt="Hero"
               style={{ maxHeight: "500px", objectFit: "cover" }}
@@ -94,7 +98,7 @@ export default function Home() {
             (img, idx) => (
               <div className={`carousel-item ${idx === 0 ? "active" : ""}`} key={idx}>
                 <img
-                  src={`src/${img}`}
+                  src={`public/images/${img}`}
                   className="d-block w-100"
                   style={{ maxHeight: "80vh", objectFit: "cover" }}
                   alt="ramen"
@@ -133,7 +137,7 @@ export default function Home() {
               className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="src/HikariRamenLogo.png"
+              src="public/images/HikariRamenLogo.png"
               alt=""
             />
             <p className="text-white px-4">©2025</p>
@@ -179,9 +183,9 @@ export default function Home() {
             <h5>Social Media</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                <img height="40px" src="src/instagram logo.png" alt="" />
-                <img height="40px" src="src/facebook logo.png" alt="" />
-                <img height="40px" src="src/twitter logo.png" alt="" />
+                <img height="40px" src="public/images/instagram logo.png" alt="" />
+                <img height="40px" src="public/images/facebook logo.png" alt="" />
+                <img height="40px" src="public/images/twitter logo.png" alt="" />
               </li>
             </ul>
           </div>
