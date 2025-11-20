@@ -22,7 +22,7 @@ const ContactPage = () => {
       <img
         width="110"
         height="102"
-        src="src/HikariRamenLogo.png"
+        src="/src/HikariRamenLogo.png"
         alt="Hikari Ramen Logo"
       />
     </div>
@@ -43,7 +43,7 @@ const ContactPage = () => {
       </li>
       <li>
         <Link className="nav-link px-3 text-dark fs-5 fw-bold" to="/cart">
-          <img height="25" src="src/Cart.png" alt="Cart" />
+          <img height="25" src="/src/Cart.png" alt="Cart" />
           <span
             id="cart-count"
             className="badge bg-danger"
@@ -66,7 +66,7 @@ const ContactPage = () => {
                 <div className="container col-xxl-8 px-4 py-5">
                     <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
                         <div className="col-10 col-sm-8 col-lg-6">
-                            <img src="src/location.png" className="d-block mx-lg-auto img-fluid" alt="Location map" width="700" height="500" loading="lazy" />
+                            <img src="/src/location.png" className="d-block mx-lg-auto img-fluid" alt="Location map" width="700" height="500" loading="lazy" />
                         </div>
                         <div className="col-lg-6">
                             <form className="contact-form" action="contact.html" method="post">
@@ -87,7 +87,7 @@ const ContactPage = () => {
             <div className="container-fluid bg-brown">
                 <footer className=" row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5">
                     <div className="col mb-3">
-                        <img className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" width="110" height="102" src="src/HikariRamenLogo.png" alt="Hikari Ramen Logo" />
+                        <img className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" width="110" height="102" src="/src/HikariRamenLogo.png" alt="Hikari Ramen Logo" />
                         <p className="text-white px-4">©2025</p>
                     </div>
                     <div className="col mb-3"></div>
@@ -113,9 +113,9 @@ const ContactPage = () => {
                         <h5>Social Media</h5>
                         <ul className="nav flex-column">
                             <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                                <img height="40px" src="src/instagram logo.png" alt="Instagram Logo" />
-                                <img height="40px" src="src/facebook logo.png" alt="Facebook Logo" />
-                                <img height="40px" src="src/twitter logo.png" alt="Twitter Logo" />
+                                <img height="40px" src="/src/instagram logo.png" alt="Instagram Logo" />
+                                <img height="40px" src="/src/facebook logo.png" alt="Facebook Logo" />
+                                <img height="40px" src="/src/twitter logo.png" alt="Twitter Logo" />
                             </li>
                         </ul>
                     </div>

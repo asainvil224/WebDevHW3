@@ -17,7 +17,7 @@ export default function Home() {
               className="d-inline-flex link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="./src/HikariRamenLogo.png"
+              src="src/HikariRamenLogo.png"
               alt="Logo"
             />
           </div>
@@ -94,7 +94,7 @@ export default function Home() {
             (img, idx) => (
               <div className={`carousel-item ${idx === 0 ? "active" : ""}`} key={idx}>
                 <img
-                  src={`/src/${img}`}
+                  src={`src/${img}`}
                   className="d-block w-100"
                   style={{ maxHeight: "80vh", objectFit: "cover" }}
                   alt="ramen"

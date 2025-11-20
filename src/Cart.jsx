@@ -13,7 +13,7 @@ function CartPage() {
       <nav className="container-fluid">
         <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
           <div className="col-md-0 mb-2 mb-md-0">
-            <img width="110" height="102" src="src/HikariRamenLogo.png" alt="logo" />
+            <img width="110" height="102" src="/src/HikariRamenLogo.png" alt="logo" />
           </div>
 
           <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -24,7 +24,7 @@ function CartPage() {
 
             <li>
               <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/cart">
-                <img height="25px" src="src/Cart.png" alt="cart" />
+                <img height="25px" src="/src/Cart.png" alt="cart" />
                 <span
                   className="badge bg-danger"
                   style={{ position: "relative", top: "-10px", left: "-10px" }}

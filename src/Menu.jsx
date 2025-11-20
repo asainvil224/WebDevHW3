@@ -14,37 +14,37 @@ const Menu = () => {
   const appetizers = [
     {
       name: "Gyoza (Pan-Fried Dumplings)",
-      img: "src/gyoza.webp",
+      img: "/src/gyoza.webp",
       desc: "Handmade pork and vegetable dumplings, served with our house soy-garlic dipping sauce.",
       price: 8.50,
     },
     {
       name: "Edamame with Sea Salt",
-      img: "src/edamame.jpg",
+      img: "/src/edamame.jpg",
       desc: "Freshly steamed soybeans sprinkled with sea salt. Simple, healthy, and perfectly addictive.",
       price: 6.00,
     },
     {
       name: "Crispy Karaage Chicken",
-      img: "src/karage.webp",
+      img: "/src/karage.webp",
       desc: "Tender bites of marinated chicken served with a tangy yuzu mayo dip.",
       price: 9.50,
     },
     {
       name: "Takoyaki (Octopus Balls)",
-      img: "src/takoyaki.jpg",
+      img: "/src/takoyaki.jpg",
       desc: "Savory batter balls filled with diced octopus, drizzled with sweet sauce, mayo, and bonito flakes.",
       price: 8.75,
     },
     {
       name: "Shishito Peppers",
-      img: "src/peppers.jpg",
+      img: "/src/peppers.jpg",
       desc: "Lightly blistered peppers tossed in soy glaze and sesame seeds — smoky and slightly sweet.",
       price: 7.50,
     },
     {
       name: "Agedashi Tofu",
-      img: "src/tofu.jpg",
+      img: "/src/tofu.jpg",
       desc: "Lightly fried tofu cubes served in a warm dashi broth with grated daikon, scallions, and bonito flakes.",
       price: 7.25,
     },
@@ -53,37 +53,37 @@ const Menu = () => {
   const ramen = [
     {
       name: "Hikari Shoyu Ramen",
-      img: "src/shoyu ramen.jpg",
+      img: "/src/shoyu ramen.jpg",
       desc: "Our signature soy-based broth, balanced with savory chicken stock, topped with tender chashu pork, bamboo shoots, nori, and a soft-boiled egg.",
       price: 14.00,
     },
     {
       name: "Spicy Miso Ramen",
-      img: "src/spicy miso ramen.jpg",
+      img: "/src/spicy miso ramen.jpg",
       desc: "Bold miso broth with a spicy kick, loaded with minced pork, corn, scallions, bean sprouts, and chili oil for extra heat.",
       price: 15.50,
     },
     {
       name: "Tonkotsu Classic",
-      img: "src/tonkotsu ramen.jpg",
+      img: "/src/tonkotsu ramen.jpg",
       desc: "Rich and creamy pork bone broth simmered for 12 hours, served with chashu pork, black garlic oil, soft egg, and mushrooms.",
       price: 16.00,
     },
     {
       name: "Shio Ramen (Salt Broth)",
-      img: "src/shio ramen.jpg",
+      img: "/src/shio ramen.jpg",
       desc: "A clear and delicate chicken broth seasoned with sea salt, topped with sliced chicken breast, naruto, scallions, and nori.",
       price: 13.75,
     },
     {
       name: "Yasai Vegetarian Ramen",
-      img: "src/vegetarian ramen.webp",
+      img: "/src/vegetarian ramen.webp",
       desc: "Fragrant vegetable broth with tofu, mushrooms, bok choy, and corn. Light, nourishing, and fully plant-based.",
       price: 13.50,
     },
     {
       name: "Hikari Black Garlic Ramen",
-      img: "src/black garlic ramen.webp",
+      img: "/src/black garlic ramen.webp",
       desc: "Deeply savory pork broth infused with roasted black garlic, topped with chashu, menma, scallions, and chili threads.",
       price: 16.50,
     },
@@ -92,37 +92,37 @@ const Menu = () => {
   const drinks = [
     {
       name: "Matcha Iced Latte",
-      img: "src/matcha latte.jpg",
+      img: "/src/matcha latte.jpg",
       desc: "Creamy matcha blended with milk and a hint of sweetness — refreshing and energizing.",
       price: 5.50,
     },
     {
       name: "Yuzu Lemonade",
-      img: "src/yuzu lemonade.jpg",
+      img: "/src/yuzu lemonade.jpg",
       desc: "Sparkling lemonade infused with Japanese yuzu citrus for a zesty, tangy finish.",
       price: 4.75,
     },
     {
       name: "Ramune Soda",
-      img: "src/ramune.jpg",
+      img: "/src/ramune.jpg",
       desc: "The classic Japanese marble soda available in original, melon, or strawberry flavors.",
       price: 4.25,
     },
     {
       name: "Iced Jasmine Green Tea",
-      img: "src/iced jasmine green tea.jpg",
+      img: "/src/iced jasmine green tea.jpg",
       desc: "Light, floral, and perfectly chilled — pairs beautifully with any ramen bowl.",
       price: 3.75,
     },
     {
       name: "Asahi Draft Beer",
-      img: "src/beer.webp",
+      img: "/src/beer.webp",
       desc: "Crisp and clean Japanese lager served cold to balance the richness of your meal.",
       price: 6.50,
     },
     {
       name: "Sake Flight (3 Tasters)",
-      img: "src/Sake_Flight.webp",
+      img: "/src/Sake_Flight.webp",
       desc: "A curated trio of premium Japanese sake — dry, floral, and fruity.",
       price: 12.00,
     },
@@ -169,7 +169,7 @@ const Menu = () => {
       <nav className="container-fluid">
         <header className="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4">
           <div>
-            <img width="110" height="102" src="src/HikariRamenLogo.png" alt="logo" />
+            <img width="110" height="102" src="/src/HikariRamenLogo.png" alt="logo" />
           </div>
 
           <ul className="nav">
@@ -179,7 +179,7 @@ const Menu = () => {
             <li><Link className="nav-link text-dark fs-5 fw-bold" to="/contact">Contact</Link></li>
             <li>
               <Link className="nav-link text-dark fs-5 fw-bold" to="/cart">
-                <img height="25px" src="src/Cart.png" alt="Cart" />
+                <img height="25px" src="/src/Cart.png" alt="Cart" />
                 <span
                   className="badge bg-danger"
                   style={{ position: "relative", top: "-10px", left: "-10px" }}
@@ -219,7 +219,7 @@ const Menu = () => {
               className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="./src/assets/HikariRamenLogo.png"
+              src="/src/HikariRamenLogo.png"
               alt=""
             />
             <p className="text-white px-4">©2025</p>
@@ -265,9 +265,9 @@ const Menu = () => {
             <h5>Social Media</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                <img height="40px" src="src/instagram logo.png" alt="" />
-                <img height="40px" src="src/facebook logo.png" alt="" />
-                <img height="40px" src="src/twitter logo.png" alt="" />
+                <img height="40px" src="/src/instagram logo.png" alt="" />
+                <img height="40px" src="/src/facebook logo.png" alt="" />
+                <img height="40px" src="/src/twitter logo.png" alt="" />
               </li>
             </ul>
           </div>
