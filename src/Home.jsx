@@ -4,6 +4,7 @@ import "./stylesheet.css";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 import logo from "/public/images/HikariRamenLogo.png";
+import cart from "/public/images/Cart.png";
 
 <img src={logo} />
 
@@ -41,7 +42,7 @@ export default function Home() {
                                   </li>
                                   <li>
                                     <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/cart">
-                                      <img height="25px" src="public/images/Cart.png" alt="Cart" />
+                                      <img height="25px" src={cart} alt="Cart" />
                                       <span
                                         id="cart-count"
                                         className="badge bg-danger"
@@ -60,7 +61,7 @@ export default function Home() {
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5 w-100">
           <div className="col-12 col-sm-8 col-lg-6">
             <img
-              src="public/images/HikariRamenLogo.png"
+              src={logo}
               className="d-block mx-lg-auto img-fluid w-100"
               alt="Hero"
               style={{ maxHeight: "500px", objectFit: "cover" }}
