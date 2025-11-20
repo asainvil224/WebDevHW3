@@ -17,7 +17,7 @@ export default function Home() {
               className="d-inline-flex link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="src/HikariRamenLogo.png"
+              src="./src/HikariRamenLogo.png"
               alt="Logo"
             />
           </div>
