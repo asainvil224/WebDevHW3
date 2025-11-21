@@ -5,6 +5,15 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 import logo from "/public/images/HikariRamenLogo.png";
 import cart from "/public/images/Cart.png";
+import display from "/public/images/display.jpg";
+import display2 from "/public/images/display2.jpg";
+import display3 from "/public/images/display3.jpg";
+import display4 from "/public/images/display4.jpg";
+import display5 from "/public/images/display5.jpg";
+import display6 from "/public/images/display6.jpg";
+import insta from "/public/images/instagram logo.png";
+import facebook from "/public/images/facebook logo.png";
+import twitter from "/public/images/twitter logo.png";
 
 <img src={logo} />
 
@@ -90,45 +99,48 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* CAROUSEL */}
-      <div id="carouselExample" className="carousel slide w-100">
-        <div className="carousel-inner">
-
-          {["display6.jpg", "display2.jpg", "display3.jpg", "display4.jpg", "display5.jpg", "display.jpg"].map(
-            (img, idx) => (
-              <div className={`carousel-item ${idx === 0 ? "active" : ""}`} key={idx}>
-                <img
-                  src={`public/images/${img}`}
-                  className="d-block w-100"
-                  style={{ maxHeight: "80vh", objectFit: "cover" }}
-                  alt="ramen"
-                />
-              </div>
-            )
-          )}
-        </div>
-
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+{/* CAROUSEL */}
+<div id="carouselExample" className="carousel slide w-100">
+  <div className="carousel-inner">
+    {[
+      display6,
+      display2,
+      display3,
+      display4,
+      display5,
+      display
+    ].map((img, idx) => (
+      <div className={`carousel-item ${idx === 0 ? "active" : ""}`} key={idx}>
+        <img
+          src={img}
+          className="d-block w-100"
+          style={{ maxHeight: "80vh", objectFit: "cover" }}
+          alt="ramen"
+        />
       </div>
+    ))}
+  </div>
+
+  <button
+    className="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="prev"
+  >
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+
+  <button
+    className="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="next"
+  >
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
 
       {/* FOOTER */}
       <footer className="container-fluid bg-brown mt-auto">
@@ -138,7 +150,7 @@ export default function Home() {
               className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="public/images/HikariRamenLogo.png"
+              src={logo}
               alt=""
             />
             <p className="text-white px-4">©2025</p>
@@ -184,9 +196,9 @@ export default function Home() {
             <h5>Social Media</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                <img height="40px" src="public/images/instagram logo.png" alt="" />
-                <img height="40px" src="public/images/facebook logo.png" alt="" />
-                <img height="40px" src="public/images/twitter logo.png" alt="" />
+                <img height="40px" src={insta} alt="" />
+                <img height="40px" src={facebook}alt="" />
+                <img height="40px" src={twitter} alt="" />
               </li>
             </ul>
           </div>

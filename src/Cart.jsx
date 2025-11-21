@@ -3,6 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./stylesheet.css";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
+import logo from "/public/images/HikariRamenLogo.png";
+import cart from "/public/images/Cart.png";
+import insta from "/public/images/instagram logo.png";
+import facebook from "/public/images/facebook logo.png";
+import twitter from "/public/images/twitter logo.png";
 
 function CartPage() {
   const { cartItems, removeFromCart, cartTotal, cartCount } = useCart();
@@ -13,7 +18,7 @@ function CartPage() {
       <nav className="container-fluid">
         <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
           <div className="col-md-0 mb-2 mb-md-0">
-            <img width="110" height="102" src="/src/HikariRamenLogo.png" alt="logo" />
+            <img width="110" height="102" src={logo} alt="logo" />
           </div>
 
           <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -24,7 +29,7 @@ function CartPage() {
 
             <li>
               <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/cart">
-                <img height="25px" src="/src/Cart.png" alt="cart" />
+                <img height="25px" src={cart} alt="cart" />
                 <span
                   className="badge bg-danger"
                   style={{ position: "relative", top: "-10px", left: "-10px" }}

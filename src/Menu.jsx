@@ -4,6 +4,29 @@ import "./stylesheet.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
+import logo from "/public/images/HikariRamenLogo.png";
+import cart from "/public/images/Cart.png";
+import gyoza from "/public/images/gyoza.webp";
+import edamame from "/public/images/edamame.jpg";
+import karage from "/public/images/karage.webp";
+import takoyaki from "/public/images/takoyaki.jpg";
+import peppers from "/public/images/peppers.jpg";
+import tofu from "/public/images/tofu.jpg";
+import shoyuramen from "/public/images/shoyu ramen.jpg";
+import spicymisoramen from "/public/images/spicy miso ramen.jpg";
+import tonkotsuramen from "/public/images/tonkotsu ramen.jpg";
+import shioramen from "/public/images/shio ramen.jpg";
+import vegetarianramen from "/public/images/vegetarian ramen.webp";
+import blackgarlicramen from "/public/images/black garlic ramen.webp";
+import matchalatte from "/public/images/matcha latte.jpg";
+import yuzulemonade from "/public/images/yuzu lemonade.jpg";
+import RamuneSoda from "/public/images/ramune.jpg";
+import icedjasminegreentea from "/public/images/iced jasmine green tea.jpg";
+import AsahiDraftBeer from "/public/images/beer.webp";
+import Sake_Flight from "/public/images/Sake_Flight.webp";
+import insta from "/public/images/instagram logo.png";
+import facebook from "/public/images/facebook logo.png";
+import twitter from "/public/images/twitter logo.png";
 
 const Menu = () => {
   const { addToCart, cartCount } = useCart(); // ⬅️ use addToCart from context
@@ -14,37 +37,37 @@ const Menu = () => {
   const appetizers = [
     {
       name: "Gyoza (Pan-Fried Dumplings)",
-      img: "/src/gyoza.webp",
+      img: gyoza,
       desc: "Handmade pork and vegetable dumplings, served with our house soy-garlic dipping sauce.",
       price: 8.50,
     },
     {
       name: "Edamame with Sea Salt",
-      img: "/src/edamame.jpg",
+      img: edamame,
       desc: "Freshly steamed soybeans sprinkled with sea salt. Simple, healthy, and perfectly addictive.",
       price: 6.00,
     },
     {
       name: "Crispy Karaage Chicken",
-      img: "/src/karage.webp",
+      img: karage,
       desc: "Tender bites of marinated chicken served with a tangy yuzu mayo dip.",
       price: 9.50,
     },
     {
       name: "Takoyaki (Octopus Balls)",
-      img: "/src/takoyaki.jpg",
+      img: takoyaki,
       desc: "Savory batter balls filled with diced octopus, drizzled with sweet sauce, mayo, and bonito flakes.",
       price: 8.75,
     },
     {
       name: "Shishito Peppers",
-      img: "/src/peppers.jpg",
+      img: peppers,
       desc: "Lightly blistered peppers tossed in soy glaze and sesame seeds — smoky and slightly sweet.",
       price: 7.50,
     },
     {
       name: "Agedashi Tofu",
-      img: "/src/tofu.jpg",
+      img: tofu,
       desc: "Lightly fried tofu cubes served in a warm dashi broth with grated daikon, scallions, and bonito flakes.",
       price: 7.25,
     },
@@ -53,37 +76,37 @@ const Menu = () => {
   const ramen = [
     {
       name: "Hikari Shoyu Ramen",
-      img: "/src/shoyu ramen.jpg",
+      img: shoyuramen ,
       desc: "Our signature soy-based broth, balanced with savory chicken stock, topped with tender chashu pork, bamboo shoots, nori, and a soft-boiled egg.",
       price: 14.00,
     },
     {
       name: "Spicy Miso Ramen",
-      img: "/src/spicy miso ramen.jpg",
+      img: spicymisoramen,
       desc: "Bold miso broth with a spicy kick, loaded with minced pork, corn, scallions, bean sprouts, and chili oil for extra heat.",
       price: 15.50,
     },
     {
       name: "Tonkotsu Classic",
-      img: "/src/tonkotsu ramen.jpg",
+      img: tonkotsuramen,
       desc: "Rich and creamy pork bone broth simmered for 12 hours, served with chashu pork, black garlic oil, soft egg, and mushrooms.",
       price: 16.00,
     },
     {
       name: "Shio Ramen (Salt Broth)",
-      img: "/src/shio ramen.jpg",
+      img: shioramen,
       desc: "A clear and delicate chicken broth seasoned with sea salt, topped with sliced chicken breast, naruto, scallions, and nori.",
       price: 13.75,
     },
     {
       name: "Yasai Vegetarian Ramen",
-      img: "/src/vegetarian ramen.webp",
+      img: vegetarianramen,
       desc: "Fragrant vegetable broth with tofu, mushrooms, bok choy, and corn. Light, nourishing, and fully plant-based.",
       price: 13.50,
     },
     {
       name: "Hikari Black Garlic Ramen",
-      img: "/src/black garlic ramen.webp",
+      img: blackgarlicramen,
       desc: "Deeply savory pork broth infused with roasted black garlic, topped with chashu, menma, scallions, and chili threads.",
       price: 16.50,
     },
@@ -92,37 +115,37 @@ const Menu = () => {
   const drinks = [
     {
       name: "Matcha Iced Latte",
-      img: "/src/matcha latte.jpg",
+      img: matchalatte,
       desc: "Creamy matcha blended with milk and a hint of sweetness — refreshing and energizing.",
       price: 5.50,
     },
     {
       name: "Yuzu Lemonade",
-      img: "/src/yuzu lemonade.jpg",
+      img: yuzulemonade,
       desc: "Sparkling lemonade infused with Japanese yuzu citrus for a zesty, tangy finish.",
       price: 4.75,
     },
     {
       name: "Ramune Soda",
-      img: "/src/ramune.jpg",
+      img: RamuneSoda,
       desc: "The classic Japanese marble soda available in original, melon, or strawberry flavors.",
       price: 4.25,
     },
     {
       name: "Iced Jasmine Green Tea",
-      img: "/src/iced jasmine green tea.jpg",
+      img: icedjasminegreentea,
       desc: "Light, floral, and perfectly chilled — pairs beautifully with any ramen bowl.",
       price: 3.75,
     },
     {
       name: "Asahi Draft Beer",
-      img: "/src/beer.webp",
+      img: AsahiDraftBeer,
       desc: "Crisp and clean Japanese lager served cold to balance the richness of your meal.",
       price: 6.50,
     },
     {
       name: "Sake Flight (3 Tasters)",
-      img: "/src/Sake_Flight.webp",
+      img: Sake_Flight,
       desc: "A curated trio of premium Japanese sake — dry, floral, and fruity.",
       price: 12.00,
     },
@@ -169,7 +192,7 @@ const Menu = () => {
       <nav className="container-fluid">
         <header className="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4">
           <div>
-            <img width="110" height="102" src="/src/HikariRamenLogo.png" alt="logo" />
+            <img width="110" height="102" src={logo} alt="logo" />
           </div>
 
           <ul className="nav">
@@ -179,7 +202,7 @@ const Menu = () => {
             <li><Link className="nav-link text-dark fs-5 fw-bold" to="/contact">Contact</Link></li>
             <li>
               <Link className="nav-link text-dark fs-5 fw-bold" to="/cart">
-                <img height="25px" src="/src/Cart.png" alt="Cart" />
+                <img height="25px" src={cart} alt="Cart" />
                 <span
                   className="badge bg-danger"
                   style={{ position: "relative", top: "-10px", left: "-10px" }}
@@ -219,7 +242,7 @@ const Menu = () => {
               className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="/src/HikariRamenLogo.png"
+              src={logo}
               alt=""
             />
             <p className="text-white px-4">©2025</p>
@@ -265,9 +288,9 @@ const Menu = () => {
             <h5>Social Media</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                <img height="40px" src="/src/instagram logo.png" alt="" />
-                <img height="40px" src="/src/facebook logo.png" alt="" />
-                <img height="40px" src="/src/twitter logo.png" alt="" />
+                <img height="40px" src={insta} alt="" />
+                <img height="40px" src={facebook} alt="" />
+                <img height="40px" src={twitter} alt="" />
               </li>
             </ul>
           </div>

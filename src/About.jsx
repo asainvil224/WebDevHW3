@@ -3,6 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./stylesheet.css";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
+import logo from "/public/images/HikariRamenLogo.png";
+import cart from "/public/images/Cart.png";
+import ramenteam from "/public/images/Ramenteam.jpg";
+import insta from "/public/images/instagram logo.png";
+import facebook from "/public/images/facebook logo.png";
+import twitter from "/public/images/twitter logo.png";
 
 
 export default function About() {
@@ -17,7 +23,7 @@ export default function About() {
               className="d-inline-flex link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="/src/HikariRamenLogo.png"
+              src={logo}
               alt="Logo"
             />
           </div>
@@ -37,7 +43,7 @@ export default function About() {
                                   </li>
                                   <li>
                                     <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/cart">
-                                      <img height="25px" src="/src/Cart.png" alt="Cart" />
+                                      <img height="25px" src={cart} alt="Cart" />
                                       <span
                                         id="cart-count"
                                         className="badge bg-danger"
@@ -57,7 +63,7 @@ export default function About() {
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5 w-100">
           <div className="col-12 col-sm-8 col-lg-6">
             <img
-              src="/src/Ramenteam.jpg"
+              src={ramenteam}
               className="d-block mx-lg-auto img-fluid w-100"
               alt="Team"
               style={{ maxHeight: "500px", objectFit: "cover" }}
@@ -109,7 +115,7 @@ export default function About() {
               className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
               width="110"
               height="102"
-              src="/src/HikariRamenLogo.png"
+              src={logo}
               alt=""
             />
             <p className="text-white px-4">©2025</p>
@@ -155,9 +161,9 @@ export default function About() {
             <h5>Social Media</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                <img height="40px" src="/src/instagram logo.png" alt="" />
-                <img height="40px" src="/src/facebook logo.png" alt="" />
-                <img height="40px" src="/src/twitter logo.png" alt="" />
+                <img height="40px" src={insta} alt="" />
+                <img height="40px" src={facebook} alt="" />
+                <img height="40px" src={twitter} alt="" />
               </li>
             </ul>
           </div>
