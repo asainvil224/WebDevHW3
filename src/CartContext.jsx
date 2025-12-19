@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
   // Load cart from backend on mount
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/cart/${userId}`)
+      .get(`https://webdevhw3-a3ir.onrender.com/api/cart/${userId}`)
       .then((res) => {
         setCartItems(res.data.items);
       })
@@ -33,7 +33,7 @@ export const CartProvider = ({ children }) => {
   const syncCart = (updatedCart) => {
     setCartItems(updatedCart);
     axios
-      .post(`http://localhost:5000/api/cart/${userId}`, { items: updatedCart })
+      .post(`https://webdevhw3-a3ir.onrender.com/api/cart/${userId}`, { items: updatedCart })
       .catch((err) => console.error("Failed to update cart:", err));
   };
 

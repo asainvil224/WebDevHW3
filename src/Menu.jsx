@@ -18,7 +18,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/menu");
+        const response = await fetch("https://webdevhw3-a3ir.onrender.com/api/menu");
         const data = await response.json();
         setMenuItems(data);
         setLoading(false);
@@ -41,7 +41,7 @@ const Menu = () => {
         <div key={item._id} className="col">
           <div className="card shadow-sm h-100">
             <img
-              src={`http://localhost:5000/images/${item.img}`}
+              src={`https://webdevhw3-a3ir.onrender.com/images/${item.img}`}
               className="card-img-top"
               alt={item.name}
               height="400px"
