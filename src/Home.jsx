@@ -1,19 +1,20 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./stylesheet.css";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
-import logo from "/public/images/HikariRamenLogo.png";
-import cart from "/public/images/Cart.png";
-import display from "/public/images/display.jpg";
-import display2 from "/public/images/display2.jpg";
-import display3 from "/public/images/display3.jpg";
-import display4 from "/public/images/display4.jpg";
-import display5 from "/public/images/display5.jpg";
-import display6 from "/public/images/display6.jpg";
-import insta from "/public/images/instagram logo.png";
-import facebook from "/public/images/facebook logo.png";
-import twitter from "/public/images/twitter logo.png";
+import logo from "/images/HikariRamenLogo.png";
+import cart from "/images/Cart.png";
+import display from "/images/display.jpg";
+import display2 from "/images/display2.jpg";
+import display3 from "/images/display3.jpg";
+import display4 from "/images/display4.jpg";
+import display5 from "/images/display5.jpg";
+import display6 from "/images/display6.jpg";
+import insta from "/images/instagram logo.png";
+import facebook from "/images/facebook logo.png";
+import twitter from "/images/twitter logo.png";
 
 <img src={logo} />
 
@@ -24,46 +25,55 @@ export default function Home() {
     <div className="d-flex flex-column min-vh-100">
 
       {/* NAV */}
-      <nav className="container-fluid">
-        <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
-          <div className="col-md-0 mb-2 mb-md-0">
-            <img
-              className="d-inline-flex link-body-emphasis text-decoration-none"
-              width="110"
-              height="102"
-              src={logo} 
-              alt="Logo"
-            />
-          </div>
+      <nav className="navbar navbar-expand-md navbar-light bg-light py-3 mb-4">
+  <div className="container-fluid">
+    <Link className="navbar-brand" to="/">
+      <img src={logo} alt="Logo" width="110" height="102" />
+    </Link>
 
-          <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                                  <li>
-                                    <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/">Home</Link>
-                                  </li>
-                                  <li>
-                                    <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/about">About</Link>
-                                  </li>
-                                  <li>
-                                    <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/menu">Menu</Link>
-                                  </li>
-                                  <li>
-                                    <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/contact">Contact</Link>
-                                  </li>
-                                  <li>
-                                    <Link className="nav-link px-10 text-dark fs-5 fw-bold" to="/cart">
-                                      <img height="25px" src={cart} alt="Cart" />
-                                      <span
-                                        id="cart-count"
-                                        className="badge bg-danger"
-                                        style={{ position: "relative", top: "-10px", left: "-10px" }}
-                                      >
-                                        {cartCount}
-                                      </span>
-                                    </Link>
-                                  </li>
-                                </ul>
-        </header>
-      </nav>
+    {/* Hamburger button for mobile */}
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
+
+    {/* Navbar links */}
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav ms-auto">
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/">Home</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/about">About</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/menu">Menu</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/contact">Contact</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold position-relative" to="/cart">
+            <img height="25px" src={cart} alt="Cart" />
+            <span
+              className="badge bg-danger position-absolute top-0 start-100 translate-middle"
+            >
+              {cartCount}
+            </span>
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
       {/* HERO SECTION */}
       <div className="container-fluid px-4 py-5 flex-grow-1 d-flex align-items-center min-vh-100">

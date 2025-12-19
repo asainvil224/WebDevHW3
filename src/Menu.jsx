@@ -1,184 +1,63 @@
-// Menu.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./stylesheet.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
-import logo from "/public/images/HikariRamenLogo.png";
-import cart from "/public/images/Cart.png";
-import gyoza from "/public/images/gyoza.webp";
-import edamame from "/public/images/edamame.jpg";
-import karage from "/public/images/karage.webp";
-import takoyaki from "/public/images/takoyaki.jpg";
-import peppers from "/public/images/peppers.jpg";
-import tofu from "/public/images/tofu.jpg";
-import shoyuramen from "/public/images/shoyu ramen.jpg";
-import spicymisoramen from "/public/images/spicy miso ramen.jpg";
-import tonkotsuramen from "/public/images/tonkotsu ramen.jpg";
-import shioramen from "/public/images/shio ramen.jpg";
-import vegetarianramen from "/public/images/vegetarian ramen.webp";
-import blackgarlicramen from "/public/images/black garlic ramen.webp";
-import matchalatte from "/public/images/matcha latte.jpg";
-import yuzulemonade from "/public/images/yuzu lemonade.jpg";
-import RamuneSoda from "/public/images/ramune.jpg";
-import icedjasminegreentea from "/public/images/iced jasmine green tea.jpg";
-import AsahiDraftBeer from "/public/images/beer.webp";
-import Sake_Flight from "/public/images/Sake_Flight.webp";
-import insta from "/public/images/instagram logo.png";
-import facebook from "/public/images/facebook logo.png";
-import twitter from "/public/images/twitter logo.png";
+import logo from "/images/HikariRamenLogo.png";
+import cart from "/images/Cart.png";
+import insta from "/images/instagram logo.png";
+import facebook from "/images/facebook logo.png";
+import twitter from "/images/twitter logo.png";
 
 const Menu = () => {
-  const { addToCart, cartCount } = useCart(); // ⬅️ use addToCart from context
+  const { addToCart, cartCount } = useCart();
+  const [menuItems, setMenuItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Convert price into a number instead of "$14.00"
-  const num = (p) => Number(p.replace("$", ""));
+  useEffect(() => {
+    const fetchMenu = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/menu");
+        const data = await response.json();
+        setMenuItems(data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching menu:", err);
+        setLoading(false);
+      }
+    };
+    fetchMenu();
+  }, []);
 
-  const appetizers = [
-    {
-      name: "Gyoza (Pan-Fried Dumplings)",
-      img: gyoza,
-      desc: "Handmade pork and vegetable dumplings, served with our house soy-garlic dipping sauce.",
-      price: 8.50,
-    },
-    {
-      name: "Edamame with Sea Salt",
-      img: edamame,
-      desc: "Freshly steamed soybeans sprinkled with sea salt. Simple, healthy, and perfectly addictive.",
-      price: 6.00,
-    },
-    {
-      name: "Crispy Karaage Chicken",
-      img: karage,
-      desc: "Tender bites of marinated chicken served with a tangy yuzu mayo dip.",
-      price: 9.50,
-    },
-    {
-      name: "Takoyaki (Octopus Balls)",
-      img: takoyaki,
-      desc: "Savory batter balls filled with diced octopus, drizzled with sweet sauce, mayo, and bonito flakes.",
-      price: 8.75,
-    },
-    {
-      name: "Shishito Peppers",
-      img: peppers,
-      desc: "Lightly blistered peppers tossed in soy glaze and sesame seeds — smoky and slightly sweet.",
-      price: 7.50,
-    },
-    {
-      name: "Agedashi Tofu",
-      img: tofu,
-      desc: "Lightly fried tofu cubes served in a warm dashi broth with grated daikon, scallions, and bonito flakes.",
-      price: 7.25,
-    },
-  ];
+  // Separate items by type
+  const appetizers = menuItems.filter(item => item.type === "appetizer");
+  const ramen = menuItems.filter(item => item.type === "ramen");
+  const drinks = menuItems.filter(item => item.type === "drink");
 
-  const ramen = [
-    {
-      name: "Hikari Shoyu Ramen",
-      img: shoyuramen ,
-      desc: "Our signature soy-based broth, balanced with savory chicken stock, topped with tender chashu pork, bamboo shoots, nori, and a soft-boiled egg.",
-      price: 14.00,
-    },
-    {
-      name: "Spicy Miso Ramen",
-      img: spicymisoramen,
-      desc: "Bold miso broth with a spicy kick, loaded with minced pork, corn, scallions, bean sprouts, and chili oil for extra heat.",
-      price: 15.50,
-    },
-    {
-      name: "Tonkotsu Classic",
-      img: tonkotsuramen,
-      desc: "Rich and creamy pork bone broth simmered for 12 hours, served with chashu pork, black garlic oil, soft egg, and mushrooms.",
-      price: 16.00,
-    },
-    {
-      name: "Shio Ramen (Salt Broth)",
-      img: shioramen,
-      desc: "A clear and delicate chicken broth seasoned with sea salt, topped with sliced chicken breast, naruto, scallions, and nori.",
-      price: 13.75,
-    },
-    {
-      name: "Yasai Vegetarian Ramen",
-      img: vegetarianramen,
-      desc: "Fragrant vegetable broth with tofu, mushrooms, bok choy, and corn. Light, nourishing, and fully plant-based.",
-      price: 13.50,
-    },
-    {
-      name: "Hikari Black Garlic Ramen",
-      img: blackgarlicramen,
-      desc: "Deeply savory pork broth infused with roasted black garlic, topped with chashu, menma, scallions, and chili threads.",
-      price: 16.50,
-    },
-  ];
-
-  const drinks = [
-    {
-      name: "Matcha Iced Latte",
-      img: matchalatte,
-      desc: "Creamy matcha blended with milk and a hint of sweetness — refreshing and energizing.",
-      price: 5.50,
-    },
-    {
-      name: "Yuzu Lemonade",
-      img: yuzulemonade,
-      desc: "Sparkling lemonade infused with Japanese yuzu citrus for a zesty, tangy finish.",
-      price: 4.75,
-    },
-    {
-      name: "Ramune Soda",
-      img: RamuneSoda,
-      desc: "The classic Japanese marble soda available in original, melon, or strawberry flavors.",
-      price: 4.25,
-    },
-    {
-      name: "Iced Jasmine Green Tea",
-      img: icedjasminegreentea,
-      desc: "Light, floral, and perfectly chilled — pairs beautifully with any ramen bowl.",
-      price: 3.75,
-    },
-    {
-      name: "Asahi Draft Beer",
-      img: AsahiDraftBeer,
-      desc: "Crisp and clean Japanese lager served cold to balance the richness of your meal.",
-      price: 6.50,
-    },
-    {
-      name: "Sake Flight (3 Tasters)",
-      img: Sake_Flight,
-      desc: "A curated trio of premium Japanese sake — dry, floral, and fruity.",
-      price: 12.00,
-    },
-  ];
-
-  // Render menu cards
   const renderCards = (items) => (
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      {items.map((item, idx) => (
-        <div key={idx} className="col">
+      {items.map((item) => (
+        <div key={item._id} className="col">
           <div className="card shadow-sm h-100">
-            <img src={item.img} className="card-img-top" alt={item.name} height="400px" />
+            <img
+              src={`http://localhost:5000/images/${item.img}`}
+              className="card-img-top"
+              alt={item.name}
+              height="400px"
+            />
             <div className="card-body d-flex flex-column">
               <h3 className="text-center">{item.name}</h3>
               <p className="card-text flex-grow-1">{item.desc}</p>
-
               <div className="d-flex justify-content-between align-items-center mt-auto">
                 <small className="text-body-secondary">${item.price.toFixed(2)}</small>
-
                 <button
                   className="btn btn-sm btn-outline-secondary"
-                  onClick={() =>
-                    addToCart({
-                      name: item.name,
-                      price: item.price,
-                      img: item.img,
-                    })
-                  }
+                  onClick={() => addToCart(item)}
                 >
                   Add to Cart
                 </button>
               </div>
-
             </div>
           </div>
         </div>
@@ -186,36 +65,63 @@ const Menu = () => {
     </div>
   );
 
+  if (loading) return <p className="text-center py-5">Loading menu...</p>;
+
   return (
     <div className="d-flex flex-column min-vh-100">
       {/* Navbar */}
-      <nav className="container-fluid">
-        <header className="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4">
-          <div>
-            <img width="110" height="102" src={logo} alt="logo" />
-          </div>
+      <nav className="navbar navbar-expand-md navbar-light bg-light py-3 mb-4">
+  <div className="container-fluid">
+    {/* Logo */}
+    <Link className="navbar-brand" to="/">
+      <img src={logo} alt="Logo" width="110" height="102" />
+    </Link>
 
-          <ul className="nav">
-            <li><Link className="nav-link text-dark fs-5 fw-bold" to="/">Home</Link></li>
-            <li><Link className="nav-link text-dark fs-5 fw-bold" to="/about">About</Link></li>
-            <li><Link className="nav-link text-dark fs-5 fw-bold" to="/menu">Menu</Link></li>
-            <li><Link className="nav-link text-dark fs-5 fw-bold" to="/contact">Contact</Link></li>
-            <li>
-              <Link className="nav-link text-dark fs-5 fw-bold" to="/cart">
-                <img height="25px" src={cart} alt="Cart" />
-                <span
-                  className="badge bg-danger"
-                  style={{ position: "relative", top: "-10px", left: "-10px" }}
-                >
-                  {cartCount}
-                </span>
-              </Link>
-            </li>
-          </ul>
-        </header>
-      </nav>
+    {/* Hamburger button for mobile */}
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
 
-      {/* Menu sections */}
+    {/* Navbar links */}
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav ms-auto">
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/">Home</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/about">About</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/menu">Menu</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link fs-5 fw-bold" to="/contact">Contact</Link>
+        </li>
+        <li className="nav-item position-relative">
+          <Link className="nav-link fs-5 fw-bold" to="/cart">
+            <img height="25px" src={cart} alt="Cart" />
+            <span
+              className="badge bg-danger position-absolute top-0 start-100 translate-middle"
+            >
+              {cartCount}
+            </span>
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+      {/* Menu Sections */}
       <main className="flex-grow-1 py-5 container-fluid">
         <section className="mb-5 px-4">
           <h2 className="pb-2 border-bottom text-center">Appetizers</h2>
@@ -233,61 +139,33 @@ const Menu = () => {
         </section>
       </main>
 
-      
-     {/* FOOTER */}
+      {/* Footer */}
       <footer className="container-fluid bg-brown mt-auto">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5">
           <div className="col mb-3">
-            <img
-              className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
-              width="110"
-              height="102"
-              src={logo}
-              alt=""
-            />
+            <img className="d-flex align-items-center mb-3" width="110" height="102" src={logo} alt="" />
             <p className="text-white px-4">©2025</p>
           </div>
-
           <div className="col mb-3"></div>
-
           <div className="col mb-3">
             <h5>Location</h5>
             <ul className="nav flex-column">
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                1234 Maple Avenue,
-              </li>
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                Brooklyn, NY
-              </li>
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                11215
-              </li>
+              <li className="nav-item mb-2 p-0 text-body-secondary">1234 Maple Avenue</li>
+              <li className="nav-item mb-2 p-0 text-body-secondary">Brooklyn, NY</li>
+              <li className="nav-item mb-2 p-0 text-body-secondary">11215</li>
             </ul>
           </div>
-
           <div className="col mb-3">
             <h5>Hours</h5>
             <ul className="nav flex-column">
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                Mon - Fri
-              </li>
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                10AM - 9PM
-              </li>
-              <br />
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                Sat - Sun
-              </li>
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
-                11AM - 8PM
-              </li>
+              <li className="nav-item mb-2 p-0 text-body-secondary">Mon - Fri: 10AM - 9PM</li>
+              <li className="nav-item mb-2 p-0 text-body-secondary">Sat - Sun: 11AM - 8PM</li>
             </ul>
           </div>
-
           <div className="col mb-3">
             <h5>Social Media</h5>
             <ul className="nav flex-column">
-              <li className="nav-item mb-2 nav-link p-0 text-body-secondary">
+              <li className="nav-item mb-2 p-0 text-body-secondary">
                 <img height="40px" src={insta} alt="" />
                 <img height="40px" src={facebook} alt="" />
                 <img height="40px" src={twitter} alt="" />

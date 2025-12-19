@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import "./stylesheet.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
-import logo from "/public/images/HikariRamenLogo.png";
-import cart from "/public/images/Cart.png";
-import location from "/public/images/location.png";
-import insta from "/public/images/instagram logo.png";
-import facebook from "/public/images/facebook logo.png";
-import twitter from "/public/images/twitter logo.png";
+import logo from "/images/HikariRamenLogo.png";
+import cart from "/images/Cart.png";
+import location from "/images/location.png";
+import insta from "/images/instagram logo.png";
+import facebook from "/images/facebook logo.png";
+import twitter from "/images/twitter logo.png";
 
 const ContactPage = () => {
     // Optional: Use useEffect to set the document title, replacing the <title> tag
@@ -20,49 +21,55 @@ const ContactPage = () => {
     return (
         <>
             {/* Header / Navigation */}
-            <nav className="container-fluid">
-  <header className="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4">
-
-    {/* Logo - Left */}
-    <div className="d-flex align-items-center">
-      <img
-        width="110"
-        height="102"
-        src={logo}
-        alt="Hikari Ramen Logo"
-      />
-    </div>
-
-    {/* Navigation Links - Right */}
-    <ul className="nav mb-2 mb-md-0">
-      <li>
-        <Link className="nav-link px-3 text-dark fs-5 fw-bold" to="/">Home</Link>
-      </li>
-      <li>
-        <Link className="nav-link px-3 text-dark fs-5 fw-bold" to="/about">About</Link>
-      </li>
-      <li>
-        <Link className="nav-link px-3 text-dark fs-5 fw-bold" to="/menu">Menu</Link>
-      </li>
-      <li>
-        <Link className="nav-link px-3 text-dark fs-5 fw-bold" to="/contact">Contact</Link>
-      </li>
-      <li>
-        <Link className="nav-link px-3 text-dark fs-5 fw-bold" to="/cart">
-          <img height="25" src={cart} alt="Cart" />
-          <span
-            id="cart-count"
-            className="badge bg-danger"
-            style={{ position: "relative", top: "-10px", left: "-10px" }}
-          >
-            {cartCount}
-          </span>
-        </Link>
-      </li>
-    </ul>
-
-  </header>
-</nav>
+            <nav className="navbar navbar-expand-md navbar-light bg-light py-3 mb-4">
+              <div className="container-fluid">
+                <Link className="navbar-brand" to="/">
+                  <img src={logo} alt="Logo" width="110" height="102" />
+                </Link>
+            
+                {/* Hamburger button for mobile */}
+                <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+            
+                {/* Navbar links */}
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav ms-auto">
+                    <li className="nav-item">
+                      <Link className="nav-link fs-5 fw-bold" to="/">Home</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link fs-5 fw-bold" to="/about">About</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link fs-5 fw-bold" to="/menu">Menu</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link fs-5 fw-bold" to="/contact">Contact</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link fs-5 fw-bold position-relative" to="/cart">
+                        <img height="25px" src={cart} alt="Cart" />
+                        <span
+                          className="badge bg-danger position-absolute top-0 start-100 translate-middle"
+                        >
+                          {cartCount}
+                        </span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            
 
 
             {/* Main Content / Contact Form Section */}

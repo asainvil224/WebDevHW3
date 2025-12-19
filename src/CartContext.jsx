@@ -1,55 +1,67 @@
-// CartContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const CartContext = createContext();
 
-export const useCart = () => useContext(CartContext);
-
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  
-  // Load cart from localStorage on mount
+  const [cartTotal, setCartTotal] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
+
+  // Replace this with actual user ID or session ID if available
+  const userId = "defaultUser";
+
+  // Load cart from backend on mount
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("cart")) || [];
-    setCartItems(stored);
+    axios
+      .get(`http://localhost:5000/api/cart/${userId}`)
+      .then((res) => {
+        setCartItems(res.data.items);
+      })
+      .catch((err) => console.error("Failed to fetch cart:", err));
   }, []);
 
-  // Save cart to localStorage whenever it changes
+  // Update cart total and count whenever cartItems change
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
+    setCartTotal(
+      cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
+    );
+    setCartCount(cartItems.reduce((count, item) => count + item.quantity, 0));
   }, [cartItems]);
 
-  // Add item to cart
+  // Helper function to sync cart with backend
+  const syncCart = (updatedCart) => {
+    setCartItems(updatedCart);
+    axios
+      .post(`http://localhost:5000/api/cart/${userId}`, { items: updatedCart })
+      .catch((err) => console.error("Failed to update cart:", err));
+  };
+
   const addToCart = (item) => {
-    setCartItems((prev) => {
-      const existing = prev.find((i) => i.name === item.name);
-      if (existing) {
-        return prev.map((i) =>
-          i.name === item.name ? { ...i, quantity: i.quantity + 1 } : i
-        );
-      }
-      return [...prev, { ...item, quantity: 1 }];
-    });
+    const existing = cartItems.find((i) => i.name === item.name);
+    let updatedCart;
+    if (existing) {
+      updatedCart = cartItems.map((i) =>
+        i.name === item.name ? { ...i, quantity: i.quantity + 1 } : i
+      );
+    } else {
+      updatedCart = [...cartItems, { ...item, quantity: 1 }];
+    }
+    syncCart(updatedCart);
   };
 
-  // Remove item from cart
-  const removeFromCart = (itemName) => {
-    setCartItems((prev) =>
-      prev
-        .map((i) =>
-          i.name === itemName ? { ...i, quantity: i.quantity - 1 } : i
-        )
-        .filter((i) => i.quantity > 0)
-    );
+  const removeFromCart = (name) => {
+    const updatedCart = cartItems.filter((item) => item.name !== name);
+    syncCart(updatedCart);
   };
-
-  // Cart total and count
-  const cartTotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, cartTotal, cartCount }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, cartTotal, cartCount }}
+    >
       {children}
     </CartContext.Provider>
   );
 };
+
+export const useCart = () => useContext(CartContext);
