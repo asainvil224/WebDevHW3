@@ -9,9 +9,7 @@ import path from "path";
 
 dotenv.config();
 const app = express();
-app.use(cors({
-  origin: ["http://localhost:5173", "https://your-vercel-site.vercel.app"]
-}));
+
 // Middleware
 app.use(cors());
 app.use(express.json());
