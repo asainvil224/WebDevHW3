@@ -8,20 +8,20 @@ export const CartProvider = ({ children }) => {
   const [cartTotal, setCartTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
-  // Replace this with actual user ID or session ID if available
+  // Replace with real user ID or session in the future
   const userId = "defaultUser";
 
-  // Load cart from backend on mount
+  // Load cart from backend
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/api/cart/${userId}`)
-
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/cart/${userId}`)
       .then((res) => {
-        setCartItems(res.data.items);
+        if (res.data?.items) setCartItems(res.data.items);
       })
       .catch((err) => console.error("Failed to fetch cart:", err));
   }, []);
 
-  // Update cart total and count whenever cartItems change
+  // Update totals/counts
   useEffect(() => {
     setCartTotal(
       cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
@@ -29,11 +29,10 @@ export const CartProvider = ({ children }) => {
     setCartCount(cartItems.reduce((count, item) => count + item.quantity, 0));
   }, [cartItems]);
 
-  // Helper function to sync cart with backend
   const syncCart = (updatedCart) => {
     setCartItems(updatedCart);
     axios
-      .post(`${import.meta.env.VITE_APP_API_URL}/api/cart/${userId}`, { items: updatedCart })
+      .post(`${import.meta.env.VITE_API_URL}/api/cart/${userId}`, { items: updatedCart })
       .catch((err) => console.error("Failed to update cart:", err));
   };
 
