@@ -18,7 +18,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/menu`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/menu`);
         const data = await response.json();
         setMenuItems(data);
         setLoading(false);
@@ -41,7 +41,7 @@ const Menu = () => {
         <div key={item._id} className="col">
           <div className="card shadow-sm h-100">
             <img
-              src={`${process.env.REACT_APP_API_URL}/images/${item.img}`}
+              src={`${import.meta.env.VITE_APP_API_URL}/images/${item.img}`}
               className="card-img-top"
               alt={item.name}
               height="400px"
