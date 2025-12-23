@@ -19,7 +19,7 @@ import { CartProvider } from "./CartContext";
 createRoot(document.getElementById("root")).render(
  <StrictMode>
   <CartProvider>
- <BrowserRouter basename="/WebDevHW3" >
+ <BrowserRouter >
    <Routes>
      <Route path="/" element={<Home />} />
      <Route path="/about" element={<About />} />
