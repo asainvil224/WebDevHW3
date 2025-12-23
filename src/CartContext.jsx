@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
   // Load cart from backend
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/cart/${userId}`)
+      .get(`${import.meta.env.VITE_APP_API_URL}/api/cart/${userId}`)
       .then((res) => {
         if (res.data?.items) setCartItems(res.data.items);
       })
@@ -32,7 +32,7 @@ export const CartProvider = ({ children }) => {
   const syncCart = (updatedCart) => {
     setCartItems(updatedCart);
     axios
-      .post(`${import.meta.env.VITE_API_URL}/api/cart/${userId}`, { items: updatedCart })
+      .post(`${import.meta.env.VITE_APP_API_URL}/api/cart/${userId}`, { items: updatedCart })
       .catch((err) => console.error("Failed to update cart:", err));
   };
 

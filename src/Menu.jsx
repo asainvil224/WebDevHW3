@@ -18,7 +18,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/menu`);
+        const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/api/menu`);
         const data = await response.json();
         setMenuItems(data);
         setLoading(false);
