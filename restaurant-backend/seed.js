@@ -35,6 +35,29 @@ const seedMenuItems = async () => {
         type: "appetizer",
         img: "karage.webp"
       },
+      {
+        name: "Takoyaki (Octopus Balls)",
+        desc: "Savory batter balls filled with diced octopus, drizzled with sweet sauce, mayo, and bonito flakes.",
+        price: 8.50,
+        type: "appetizer",
+        img: "takoyaki.jpg"
+      },
+      {
+        name: "Shishito Peppers",
+        desc: "Lightly blistered peppers tossed in soy glaze and sesame seeds — smoky and slightly sweet.",
+        price: 7.50,
+        type: "appetizer",
+        img: "peppers.jpg"
+      },
+      {
+        name: "Agedashi Tofu",
+        desc: "Lightly fried tofu cubes served in a warm dashi broth with grated daikon, scallions, and bonito flakes.",
+        price: 7.25,
+        type: "appetizer",
+        img: "tofu.jpg"
+      },
+      
+      
       // Ramen
       {
         name: "Hikari Shoyu Ramen",
@@ -57,6 +80,27 @@ const seedMenuItems = async () => {
         type: "ramen",
         img: "tonkotsu ramen.jpg"
       },
+      {
+        name: "Shio Ramen (Salt Broth)",
+        desc: "A clear and delicate chicken broth seasoned with sea salt, topped with sliced chicken breast, naruto, scallions, and nori.",
+        price: 13.00,
+        type: "ramen",
+        img: "shio ramen.jpg"
+      },
+      {
+        name: "Yasai Vegetarian Ramen",
+        desc: "Fragrant vegetable broth with tofu, mushrooms, bok choy, and corn. Light, nourishing, and fully plant-based.",
+        price: 13.50,
+        type: "ramen",
+        img: "vegetarian ramen.webp"
+      },
+      {
+        name: "Hikari Black Garlic Ramen",
+        desc: "Deeply savory pork broth infused with roasted black garlic, topped with chashu, menma, scallions, and chili threads. A dark, rich twist on tradition.sake",
+        price: 16.50,
+        type: "ramen",
+        img: "black garlic ramen.webp"
+      },
       // Drinks
       {
         name: "Matcha Iced Latte",
@@ -78,6 +122,27 @@ const seedMenuItems = async () => {
         price: 4.25,
         type: "drink",
         img: "ramune.jpg"
+      },
+      {
+        name: "Iced Jasmine Green Tea",
+        desc: "Light, floral, and perfectly chilled — pairs beautifully with any ramen bowl.",
+        price: 3.25,
+        type: "drink",
+        img: "iced jasmine green tea.jpg"
+      },
+      {
+        name: "Asahi Draft Beer",
+        desc: "Crisp and clean Japanese lager served cold to balance the richness of your meal.",
+        price: 6.25,
+        type: "drink",
+        img: "beer.webp"
+      },
+      {
+        name: "Sake Flight (3 Tasters)",
+        desc: "A curated trio of premium Japanese sake — dry, floral, and fruity.",
+        price: 12.25,
+        type: "drink",
+        img: "Sake_Flight.webp"
       }
     ];
 
